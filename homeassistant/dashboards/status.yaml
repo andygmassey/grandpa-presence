@@ -125,17 +125,19 @@ views:
 
             Camera motion detection is still working.
 
+      # Grafana embedded panels - Lovelace YAML does NOT support !secret
+      # Replace the URLs below with your Grafana instance address
       - type: iframe
         title: Today vs Normal Pattern
-        url: !secret grafana_activity_pattern_url
+        url: http://YOUR_IP:3000/d-solo/dad-presence/dad-activity-patterns?orgId=1&panelId=1&kiosk&theme=dark
         aspect_ratio: 50%
 
       - type: iframe
         title: Activity by Room (7 Days)
-        url: !secret grafana_activity_by_room_url
+        url: http://YOUR_IP:3000/d-solo/dad-presence/dad-activity-patterns?orgId=1&panelId=2&kiosk&theme=dark
         aspect_ratio: 50%
 
       - type: iframe
         title: Wake and Sleep Times
-        url: !secret grafana_wake_sleep_url
+        url: http://YOUR_IP:3000/d-solo/dad-presence/dad-activity-patterns?orgId=1&panelId=3&kiosk&theme=dark
         aspect_ratio: 50%

@@ -87,23 +87,26 @@ views:
             camera_view: live
             entities: []
 
-      # ── Grafana Charts ──
-      # NOTE: Lovelace YAML does NOT support !secret - URLs must be inline
-      # Replace YOUR_IP with your Grafana host (e.g. Tailscale IP or localhost)
-      - type: iframe
-        title: Today vs Normal Pattern
-        url: http://YOUR_IP:3000/d-solo/dad-presence/dad-activity-patterns?orgId=1&panelId=1&kiosk&theme=dark
-        aspect_ratio: 50%
-
-      - type: iframe
-        title: Activity by Room (7 Days)
-        url: http://YOUR_IP:3000/d-solo/dad-presence/dad-activity-patterns?orgId=1&panelId=2&kiosk&theme=dark
-        aspect_ratio: 50%
-
-      - type: iframe
-        title: Wake and Sleep Times
-        url: http://YOUR_IP:3000/d-solo/dad-presence/dad-activity-patterns?orgId=1&panelId=3&kiosk&theme=dark
-        aspect_ratio: 50%
+      # ── System Health ──
+      - type: entities
+        title: System Health
+        show_header_toggle: false
+        entities:
+          - entity: input_boolean.xiaomi_cloud_available
+            name: Xiaomi Cloud
+            icon: mdi:cloud-check
+          - entity: sensor.cpu_temperature
+            name: CPU Temperature
+            icon: mdi:thermometer
+          - entity: sensor.disk_usage_percent
+            name: Disk Usage
+            icon: mdi:harddisk
+          - entity: sensor.system_uptime
+            name: Uptime
+            icon: mdi:clock-outline
+          - entity: sensor.deepgram_balance
+            name: Deepgram Credit
+            icon: mdi:credit-card
 
       # ── Batteries & Monitoring ──
       - type: horizontal-stack
@@ -130,23 +133,20 @@ views:
               - entity: input_number.nighttime_alert_hours
                 name: Nighttime Alert Threshold
 
-      # ── System Health ──
-      - type: entities
-        title: System Health
-        show_header_toggle: false
-        entities:
-          - entity: input_boolean.xiaomi_cloud_available
-            name: Xiaomi Cloud
-            icon: mdi:cloud-check
-          - entity: sensor.cpu_temperature
-            name: CPU Temperature
-            icon: mdi:thermometer
-          - entity: sensor.disk_usage_percent
-            name: Disk Usage
-            icon: mdi:harddisk
-          - entity: sensor.system_uptime
-            name: Uptime
-            icon: mdi:clock-outline
-          - entity: sensor.deepgram_balance
-            name: Deepgram Credit
-            icon: mdi:credit-card
+      # ── Grafana Charts ──
+      # NOTE: Lovelace YAML does NOT support !secret - URLs must be inline
+      # Replace YOUR_IP with your Grafana host (e.g. Tailscale IP or localhost)
+      - type: iframe
+        title: Today vs Normal Pattern
+        url: http://YOUR_IP:3000/d-solo/dad-presence/dad-activity-patterns?orgId=1&panelId=1&kiosk&theme=dark
+        aspect_ratio: 50%
+
+      - type: iframe
+        title: Activity by Room (7 Days)
+        url: http://YOUR_IP:3000/d-solo/dad-presence/dad-activity-patterns?orgId=1&panelId=2&kiosk&theme=dark
+        aspect_ratio: 50%
+
+      - type: iframe
+        title: Wake and Sleep Times
+        url: http://YOUR_IP:3000/d-solo/dad-presence/dad-activity-patterns?orgId=1&panelId=3&kiosk&theme=dark
+        aspect_ratio: 50%

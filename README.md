@@ -4,8 +4,7 @@ A Home Assistant-based system for remotely monitoring an elderly relative's dail
 
 > This project was built to monitor my elderly father living alone, but it can be adapted for any family member or care situation. See [CUSTOMISING.md](CUSTOMISING.md) for how to adapt it to your setup.
 
-<!-- TODO: Add screenshot of HA dashboard here -->
-<!-- ![Dashboard Screenshot](docs/images/dashboard.png) -->
+![Dashboard Screenshot](docs/images/dashboard.png)
 
 ## Why This Exists
 
